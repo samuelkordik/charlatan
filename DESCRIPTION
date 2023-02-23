@@ -42,7 +42,7 @@ Suggests:
     rmarkdown,
     ipaddress,
     stringi
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Collate: 
     'address-provider-en_GB.R'
     'address-provider-en_NZ.R'

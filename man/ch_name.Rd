@@ -4,7 +4,7 @@
 \alias{ch_name}
 \title{Create fake person names}
 \usage{
-ch_name(n = 1, locale = NULL, messy = FALSE)
+ch_name(n = 1, locale = NULL, messy = FALSE, fmt = NULL)
 }
 \arguments{
 \item{n}{(integer) number of things to get, any non-negative integer}
@@ -14,6 +14,8 @@ ch_name(n = 1, locale = NULL, messy = FALSE)
 (default: en_US)}
 
 \item{messy}{(logical) make some messy data. Default: \code{FALSE}}
+
+\item{fmt}{(character) format(s) to use}
 }
 \description{
 Create fake person names
@@ -27,6 +29,8 @@ ch_name(locale = "fr_FR", n = 10)
 ch_name(locale = "fr_CH", n = 10)
 ch_name(locale = "fa_IR", n = 10)
 ch_name(locale = "fi_FI", n = 10)
+
+ch_name(fmt = "{{last_names}}, {{first_names}}", n = 10)
 }
 \seealso{
 \link{PersonProvider}

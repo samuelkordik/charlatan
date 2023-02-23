@@ -6,6 +6,7 @@
 #' `PersonProvider$new()$allowed_locales()` for locales supported
 #' (default: en_US)
 #' @param messy (logical) make some messy data. Default: `FALSE`
+#' @param fmt (character) format(s) to use
 #' @seealso [PersonProvider]
 #' @examples
 #' ch_name()
@@ -16,12 +17,16 @@
 #' ch_name(locale = "fr_CH", n = 10)
 #' ch_name(locale = "fa_IR", n = 10)
 #' ch_name(locale = "fi_FI", n = 10)
-ch_name <- function(n = 1, locale = NULL, messy = FALSE) {
+#'
+#' ch_name(fmt = "{{last_names}}, {{first_names}}", n = 10)
+ch_name <- function(n = 1, locale = NULL, messy = FALSE, fmt = NULL) {
   assert(n, c('integer', 'numeric'))
+
+
   if (n == 1) {
-    PersonProvider$new(locale = locale, messy = messy)$render()
+    PersonProvider$new(locale = locale, messy = messy)$render(fmt)
   } else {
     x <- PersonProvider$new(locale = locale, messy = messy)
-    replicate(n, x$render())
+    replicate(n, x$render(fmt))
   }
 }
